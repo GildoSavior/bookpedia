@@ -9,15 +9,15 @@ class BookListViewModel: ViewModel() {
     private val _state = MutableStateFlow(BookListState())
     val state = _state.asStateFlow()
 
-    fun onEvent(action: BookListaAction) {
+    fun onEvent(action: BookListAction) {
         when(action) {
-            is BookListaAction.OnClick -> {
+            is BookListAction.OnClick -> {
 
             }
-            is BookListaAction.OnSearchQueryChange -> {
+            is BookListAction.OnSearchQueryChange -> {
                 _state.update { it.copy(searchQuery = action.query) }
             }
-            is BookListaAction.OnTabSelected -> {
+            is BookListAction.OnTabSelected -> {
                 _state.update { it.copy(selectedTabIndex = action.index) }
             }
         }

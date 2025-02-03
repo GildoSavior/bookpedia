@@ -19,7 +19,7 @@ fun BookListScreenRoot(
         state = BookListState,
         onAction = { action ->
             when(action) {
-                is BookListaAction.OnClick -> onBookClick(action.book)
+                is BookListAction.OnClick -> onBookClick(action.book)
                 else -> Unit
             }
 
@@ -32,7 +32,7 @@ fun BookListScreenRoot(
 @Composable
 fun BookListScreen(
     state: BookListState.Companion,
-    onAction: (BookListaAction) -> Unit,
+    onAction: (BookListAction) -> Unit,
 ) {
 
 }

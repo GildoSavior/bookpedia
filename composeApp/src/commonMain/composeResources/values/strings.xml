@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<resources>
+    <string name="search_placeholder">Search for books</string>
+    <string name="close_hint">Clear search</string>
+    close_hint
+</resources>
