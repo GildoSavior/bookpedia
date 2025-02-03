@@ -5,15 +5,15 @@ import com.plcoding.bookpedia.core.presentation.UiText
 
 data class BookListState(
 
-    val searchQuery: String = "Kotlin",
+    val searchQuery: String = "",
     val searchResult: List<Book> = emptyList(),
     val favoriteBooks: List<Book> = emptyList(),
     val isLoading: Boolean = false,
     val selectedTabIndex: Int = 0,
     val errorMessage:UiText? = null,
 )
-{
-    companion object {
-        val defaultState = BookListState()
-    }
-}
+//{
+//    companion object {
+//        val defaultState = BookListState()
+//    }
+//}

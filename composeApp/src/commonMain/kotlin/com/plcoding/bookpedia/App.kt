@@ -1,20 +1,19 @@
 package com.plcoding.bookpedia
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import org.jetbrains.compose.resources.painterResource
+import androidx.compose.foundation.layout.Box
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import com.plcoding.bookpedia.book.presentation.book_list.BookListScreenRoot
+import com.plcoding.bookpedia.book.presentation.book_list.BookListViewModel
 import org.jetbrains.compose.ui.tooling.preview.Preview
-
-import cmp_bookpedia.composeapp.generated.resources.Res
-import cmp_bookpedia.composeapp.generated.resources.compose_multiplatform
 
 @Composable
 @Preview
 fun App() {
-
+   Box() {
+       BookListScreenRoot(
+           viewModel = remember { BookListViewModel() },
+           onBookClick = {}
+       )
+   }
 }

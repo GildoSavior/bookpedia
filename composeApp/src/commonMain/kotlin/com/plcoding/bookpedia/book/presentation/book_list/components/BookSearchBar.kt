@@ -2,6 +2,7 @@ package com.plcoding.bookpedia.book.presentation.book_list.components
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -23,6 +24,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.unit.dp
 import cmp_bookpedia.composeapp.generated.resources.Res
 import cmp_bookpedia.composeapp.generated.resources.close_hint
 import cmp_bookpedia.composeapp.generated.resources.search_placeholder
@@ -104,6 +106,7 @@ fun BookSearchBar(
                     color = DesertWhite
                 )
                 .minimumInteractiveComponentSize()
+                .height(56.dp)
         )
     }
 }
