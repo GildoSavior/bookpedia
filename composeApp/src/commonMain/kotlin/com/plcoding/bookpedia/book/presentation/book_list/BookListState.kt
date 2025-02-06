@@ -29,7 +29,7 @@ val books = (1  ..  100).map {
         languages = emptyList(),
         firstPublishYear = null,
         averageRating = 4.343,
-        ratingsCount = 5,
+        ratingsCount = 5.5,
         numPages = 100,
         nunEditions = 3
     )

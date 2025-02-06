@@ -6,5 +6,13 @@
     <string name="search_results">Search Results</string>
     <string name="favorites">Favorites</string>
     <string name="no_search_results">No search results ...</string>
-    <string name="no_favorites_books">No favorite books ...</string>
+    <string name="dis_full">Your disk is full</string>
+    <string name="unknown_error">Unknown error</string>
+    <string name="server_unavailable">Server unavailable</string>
+    <string name="request_timeout">Request timeout</string>
+    <string name="too_many_requests">Too many requests</string>
+    <string name="serialization_error">Serialization error</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="generic_error">Error...</string>
+    <string name="no_favorites_books">No Favorites Books</string>
 </resources>
