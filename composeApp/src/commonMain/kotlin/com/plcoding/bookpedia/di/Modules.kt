@@ -11,6 +11,7 @@ import com.plcoding.bookpedia.book.presentation.book_list.BookListViewModel
 import org.koin.core.module.Module
 import org.koin.dsl.bind
 import org.koin.dsl.module
+import com.plcoding.bookpedia.book.presentation.SelectedBookViewModel
 
 
 expect val platformModule: Module
@@ -22,4 +23,5 @@ var sharedModule = module {
 
 
     viewModelOf(::BookListViewModel)
+    viewModelOf(::SelectedBookViewModel)
 }
