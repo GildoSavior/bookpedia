@@ -5,7 +5,7 @@ import com.plcoding.bookpedia.book.domain.Book
 
 fun SearchBookDto.toBook() : Book {
     return Book(
-        id = id,
+        id = id.substringAfterLast("/"),
         title = title,
 
         imageUrl = if (coverKey != null) {

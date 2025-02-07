@@ -11,7 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.plcoding.bookpedia.book.domain.Book
 import com.plcoding.bookpedia.book.presentation.book_list.BookListScreen
 import com.plcoding.bookpedia.book.presentation.book_list.BookListState
-import com.plcoding.bookpedia.book.presentation.book_list.books
+
 import com.plcoding.bookpedia.book.presentation.book_list.components.BookSearchBar
 
 @Preview
@@ -34,11 +34,29 @@ private fun BookSearchBarPreview() {
 
 
 
-//@Preview
-//@Composable
-//private fun BookListScreenPreview() {
-//    BookListScreen(
-//        state = BookListState(searchResults = books),
-//        onAction = {}
-//    )
-//}
+@Preview
+@Composable
+private fun BookListScreenPreview() {
+    BookListScreen(
+        state = BookListState(searchResults = books),
+        onAction = {}
+    )
+}
+
+
+
+val books = (1  ..  100).map {
+    Book(
+        id = it.toString(),
+        title = "Book $it",
+        imageUrl = "http://test.com",
+        authors = listOf("Author $it"),
+        description = "Description $it",
+        languages = emptyList(),
+        firstPublishYear = null,
+        averageRating = 4.343,
+        ratingsCount = 5.5,
+        numPages = 100,
+        nunEditions = 3
+    )
+}
