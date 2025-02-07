@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.EmptyBuildDrawCacheParams.size
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.plcoding.bookpedia.core.presentation.LightBlue
