@@ -2,7 +2,6 @@ package com.plcoding.bookpedia.book.presentation.book_list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.plcoding.bookpedia.book.data.network.KtorRemoteBookDataSource
 import com.plcoding.bookpedia.book.domain.Book
 import com.plcoding.bookpedia.book.domain.repository.BookRepository
 import com.plcoding.bookpedia.core.domain.onError
@@ -11,7 +10,6 @@ import com.plcoding.bookpedia.core.presentation.toUiText
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.launchIn
@@ -37,9 +35,6 @@ class BookListViewModel(
             SharingStarted.WhileSubscribed(5000L),
             _state.value
         )
-
-
-
 
     private var cachedBooks: List<Book> = emptyList()
     private var searchJob: Job? = null

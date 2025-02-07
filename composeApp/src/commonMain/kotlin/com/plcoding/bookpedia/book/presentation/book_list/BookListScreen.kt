@@ -55,7 +55,7 @@ fun BookListScreenRoot(
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     BookListScreen(
-        state = BookListState(searchResults = books),
+        state = state,
         onAction = { action ->
             when(action) {
                 is BookListAction.OnClick -> onBookClick(action.book)

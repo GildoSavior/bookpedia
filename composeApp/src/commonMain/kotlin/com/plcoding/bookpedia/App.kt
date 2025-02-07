@@ -18,7 +18,8 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 fun App(engine: HttpClientEngine) {
    Box() {
        BookListScreenRoot(
-           viewModel = remember { BookListViewModel(
+           viewModel =
+           remember { BookListViewModel(
                bookRepository = DefaultBookRepository(
                    remoteBookDataSource = KtorRemoteBookDataSource(
                         httpClient = HttpClientFactory.create(
