@@ -4,7 +4,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.FlowRowScopeInstance.weight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
@@ -72,14 +71,14 @@ fun BlurredImageBackground(
                     )
                 }
             }
+
+            Box(
+                modifier = Modifier
+                    .weight(0.7f)
+                    .fillMaxWidth()
+                    .background(DesertWhite)
+
+            )
         }
-
-        Box(
-            modifier = Modifier
-//                .weight(0.7f)
-                .fillMaxWidth()
-                .background(DesertWhite)
-
-        )
     }
 }
