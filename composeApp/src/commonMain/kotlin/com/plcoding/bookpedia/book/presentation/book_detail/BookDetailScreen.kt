@@ -120,7 +120,7 @@ private fun BookDetailScreen(
                             }
                         }
                     }
-                    state.book.numPages?.let { pagesCount ->
+                    state.book.numberOfPages?.let { pagesCount ->
                         TitledContent(
                             title = stringResource(Res.string.pages),
                         ) {

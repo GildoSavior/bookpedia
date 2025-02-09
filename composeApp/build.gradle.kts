@@ -82,6 +82,7 @@ kotlin {
 
         dependencies {
             ksp(libs.androidx.room.compiler)
+
         }
     }
 }

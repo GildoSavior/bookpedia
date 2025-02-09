@@ -19,9 +19,9 @@ fun SearchBookDto.toBook() : Book {
         languages = languages?: emptyList(),
         firstPublishYear = firstPublishYear.toString(),
         ratingAverage = ratingAverage?: 0.0,
-        ratingsCount = ratingCount?: 0.0,
-        numPages = numPages,
-        nunEditions = editionCount?: 0
+        ratingCount = ratingCount?: 0.0,
+        numberOfPages = numPages,
+        editionCount = editionCount?: 0
     )
 }
 
@@ -35,8 +35,25 @@ fun Book.toBookEntity(): BookEntity {
         authors = authors,
         firstPublishYear = firstPublishYear,
         ratingAverage = ratingAverage,
-        ratingCount = ratingsCount,
-        editionCount = nunEditions,
-        numberOfPages = numPages
+        ratingCount = ratingCount,
+        editionCount = editionCount,
+        numberOfPages = numberOfPages
         )
+}
+
+
+fun BookEntity.toBook(): Book {
+    return Book(
+        id = id,
+        title = title,
+        description = description,
+        imageUrl = imageUrl,
+        languages = languages,
+        authors = authors,
+        firstPublishYear = firstPublishYear,
+        ratingAverage = ratingAverage,
+        ratingCount = ratingCount,
+        editionCount = editionCount,
+        numberOfPages = numberOfPages
+    )
 }
