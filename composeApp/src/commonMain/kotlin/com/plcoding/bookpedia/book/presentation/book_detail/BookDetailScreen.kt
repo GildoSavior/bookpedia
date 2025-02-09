@@ -1,17 +1,22 @@
 package com.plcoding.bookpedia.book.presentation.book_detail
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -19,14 +24,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.key.Key.Companion.R
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import cmp_bookpedia.composeapp.generated.resources.Res
+import cmp_bookpedia.composeapp.generated.resources.description_unavailable
+import cmp_bookpedia.composeapp.generated.resources.languages
 import cmp_bookpedia.composeapp.generated.resources.pages
 import cmp_bookpedia.composeapp.generated.resources.rating
+import cmp_bookpedia.composeapp.generated.resources.synopsis
 import com.plcoding.bookpedia.book.presentation.book_detail.components.BlurredImageBackground
 import com.plcoding.bookpedia.book.presentation.book_detail.components.BookChip
+import com.plcoding.bookpedia.book.presentation.book_detail.components.ChipSize
 import com.plcoding.bookpedia.book.presentation.book_detail.components.TitledContent
 import com.plcoding.bookpedia.core.presentation.SandYellow
 import org.jetbrains.compose.resources.stringResource
@@ -52,6 +63,7 @@ fun BookDetailScreenRoot(
     )
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun BookDetailScreen(
     state: BookDetailState,
@@ -127,8 +139,63 @@ private fun BookDetailScreen(
                 }
 
                 if(state.book.languages.isNotEmpty()) {
-
+                    TitledContent(
+                        title = stringResource(Res.string.languages),
+                        modifier = Modifier
+                            .padding(vertical = 8.dp)
+                    ) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.Center,
+                            modifier = Modifier.wrapContentSize(Alignment.Center)
+                        ){
+                            state.book.languages.forEach { language ->
+                                BookChip(
+                                    size = ChipSize.SMALL,
+                                    modifier = Modifier.padding(2.dp)
+                                ) {
+                                    Text(
+                                        text = language.uppercase(),
+                                        style = MaterialTheme.typography.bodyMedium
+                                    )
+                                }
+                            }
+                        }
+                    }
                 }
+
+                Text(
+                    text = stringResource(Res.string.synopsis),
+                    style = MaterialTheme.typography.headlineLarge,
+                    modifier = Modifier
+                        .align(Alignment.Start)
+                        .fillMaxWidth()
+                        .padding(
+                            top = 24.dp,
+                            bottom = 8.dp
+                        )
+                )
+                if(state.isLoading) {
+//                    Box(
+//                        modifier = Modifier
+//                            .fillMaxSize()
+//                            .weight(1f),
+//                        contentAlignment = Alignment.Center
+//                    ) {
+//                        CircularProgressIndicator()
+//                    }
+                } else {
+                    Text(
+                        text = state.book.description ?: stringResource(Res.string.description_unavailable),
+                        style = MaterialTheme.typography.bodyMedium,
+                        textAlign = TextAlign.Justify,
+                        color = if(state.book.description.isNullOrBlank()) {
+                            Color.Black.copy(alpha = 0.4f)
+                        } else Color.Black,
+                        modifier = Modifier
+                            .padding(vertical = 8.dp)
+                    )
+                }
+
             }
         }
     }
