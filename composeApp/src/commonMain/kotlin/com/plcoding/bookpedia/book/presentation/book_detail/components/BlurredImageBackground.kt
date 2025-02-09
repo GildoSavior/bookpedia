@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -45,6 +46,7 @@ import cmp_bookpedia.composeapp.generated.resources.go_back
 import cmp_bookpedia.composeapp.generated.resources.mark_as_favorite
 import cmp_bookpedia.composeapp.generated.resources.remove_from_favorites
 import coil3.compose.rememberAsyncImagePainter
+import com.plcoding.bookpedia.book.presentation.PulseAnimation
 import com.plcoding.bookpedia.core.presentation.DarkBlue
 import com.plcoding.bookpedia.core.presentation.DesertWhite
 import com.plcoding.bookpedia.core.presentation.SandYellow
@@ -148,8 +150,18 @@ fun BlurredImageBackground(
                 AnimatedContent(
                     targetState = imageLoadResult
                 ) { result ->
-                    when(result) {
-                        null -> CircularProgressIndicator()
+                    when (result) {
+                        null -> Box(
+                            modifier = Modifier
+                                .fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            PulseAnimation(
+                                modifier = Modifier
+                                    .size(60.dp)
+                                    .align(Alignment.Center)
+                            )
+                        }
                         else -> {
                             Box {
                                 Image(
@@ -188,7 +200,7 @@ fun BlurredImageBackground(
                                             Icons.Outlined.FavoriteBorder
                                         },
                                         tint = Color.Red,
-                                        contentDescription = if(isFavorite) {
+                                        contentDescription = if (isFavorite) {
                                             stringResource(Res.string.remove_from_favorites)
                                         } else {
                                             stringResource(Res.string.mark_as_favorite)
