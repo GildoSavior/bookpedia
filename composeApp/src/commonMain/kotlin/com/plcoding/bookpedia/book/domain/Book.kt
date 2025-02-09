@@ -8,8 +8,8 @@ data class Book(
     val description: String,
     val languages: List<String>,
     val firstPublishYear: String?,
-    val averageRating: Double,
-    val ratingsCount: Double,
+    val ratingAverage: Double?,
+    val ratingsCount: Double?,
     val numPages: Int?,
     val nunEditions: Int
 )

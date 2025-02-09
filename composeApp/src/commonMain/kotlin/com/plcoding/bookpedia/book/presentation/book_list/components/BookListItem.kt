@@ -130,7 +130,7 @@ fun BookListItem(
                     )
                 }
 
-                book.averageRating?.let { rating ->
+                book.ratingAverage?.let { rating ->
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
                             text = "${round(rating * 10) / 10.0}",
